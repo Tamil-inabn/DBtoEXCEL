@@ -1,0 +1,23 @@
+﻿@using System.Data
+@model DataSet
+
+<table cellpadding="0" cellspacing="0">
+    <tr>
+        <th>Customer Id</th>
+        <th>Name</th>
+        <th>Country</th>
+    </tr>
+    @foreach (DataRow row in Model.Tables[0].Rows)
+    {
+        <tr>
+            <td>@row["E_ID"]</td>
+            <td>@row["E_NAME"]</td>
+            <td>@row["E_SALARY"]</td>
+        </tr>
+    }
+</table>
+<br />
+<br />
+<form method="post" asp-controller="Home" asp-action="Export">
+    <input type="submit" value="Export" />
+</form>
